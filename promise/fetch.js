@@ -1,4 +1,5 @@
 // ES6から利用可能
+//
 
 url = "https://jsonplaceholder.typicode.com/posts/";
 
