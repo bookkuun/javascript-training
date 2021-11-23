@@ -13,4 +13,4 @@ const c = (name) => {
 };
 
 console.log(b("Tom"));
-console.log(c("Jhon"));
+console.log(c("John"));
