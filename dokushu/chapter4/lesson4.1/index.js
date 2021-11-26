@@ -1,6 +1,1 @@
-let a = 0;
-let b = 0;
-a = 1 + (b = 10);
-
-console.log(a);
-console.log(b);
+console.log(2 * 3 ** 2);
