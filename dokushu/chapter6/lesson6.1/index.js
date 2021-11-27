@@ -1,0 +1,6 @@
+function multiply(num1, num2) {
+  return num1 * num2;
+}
+
+console.log(multiply(7, 9));
+console.log(multiply(-11, 9));
