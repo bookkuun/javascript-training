@@ -4,9 +4,13 @@ function delay(fn, message, ms) {
   }, ms);
 }
 
+// 問題１
 // delay(console.log, "こんにちは", 1000);
+
+// 問題２
 // delay(alert, "さようなら", 2000);
 
+// 問題３（コールバック地獄）
 delay(
   function (message1) {
     console.log(message1);
