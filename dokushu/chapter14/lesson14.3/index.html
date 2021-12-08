@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>タイトル</title>
+  </head>
+  <body>
+    <div id="source">Source</div>
+    <section id="section">
+      <div class="wrap">
+        <h1 class="title"><span>タイトル</span></h1>
+        <ul class="list">
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </ul>
+      </div>
+    </section>
+    <script>
+      // 2秒ごとにcallbackを実行するPromiseチェーン用関数
+      function moveElement(callback) {
+        // Promiseインスタンスを返す関数を戻り値とする
+        return () =>
+          new Promise((resolve) => {
+            setTimeout(() => {
+              callback();
+              resolve();
+            }, 2000);
+          });
+      }
+
+      const source = document.querySelector("#source");
+
+      const answer1 = moveElement(() => {
+        // h1タグの内のspanタグの前に移動
+        const h1 = document.querySelector(".title");
+        h1.prepend(source);
+      });
+
+      const answer2 = moveElement(() => {
+        const h1 = document.querySelector(".title");
+        h1.after(source);
+      });
+
+      const answer3 = moveElement(() => {
+        const wrap = document.querySelector(".wrap");
+        wrap.append(source);
+      });
+
+      const answer4 = moveElement(() => {
+        // 解答 ④ liタグの2番目の文字の前に移動
+        const list = document.querySelector(".list");
+        const targetLi = list.children[1];
+        targetLi.prepend(source);
+      });
+
+      answer1().then(answer2).then(answer3).then(answer4);
+    </script>
+  </body>
+</html>
