@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>タイトル</title>
+  </head>
+  <body>
+    <a href="https://google.com/">Googleへ</a>
+    <a href="https://www.bing.com/">Bingへ</a>
+    <a href="https://duckduckgo.com/">Bingへ</a>
+  </body>
+  <script>
+    const links = document.querySelectorAll("a");
+    links.forEach((link) => {
+      const url = link.getAttribute("href");
+      if (/google\.com/.test(url)) {
+        link.setAttribute("href", "https://www.yahoo.co.jp/");
+      }
+    });
+  </script>
+</html>
