@@ -1,0 +1,8 @@
+const breakTestArry = ["ぬけない", "not break", "break", "この前で抜ける"];
+
+for (const value of breakTestArry) {
+  console.log(value);
+  if (value === "break") {
+    break;
+  }
+}
