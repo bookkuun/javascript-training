@@ -10,5 +10,12 @@
   margin: 10px;
   font-weight: 600;
   cursor: pointer;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  background-color: black;
+  color: white;
 }
 /*# sourceMappingURL=style.css.map */
