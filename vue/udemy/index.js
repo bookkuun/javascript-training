@@ -1,14 +1,12 @@
 const app = Vue.createApp({
   data: () => ({
-    message: "data",
-    count: 99,
-    user: {
-      lastName: "tanaka",
-      firstName: "taro",
-      prefecture: "tokyo",
-    },
-    colors: ["Red", "Green"],
+    now: "-",
   }),
+  methods: {
+    onClick: function () {
+      this.now = new Date().toLocaleString();
+    },
+  },
 });
 
 app.mount("#app");
