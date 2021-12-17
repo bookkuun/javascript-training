@@ -1,12 +1,11 @@
 const app = Vue.createApp({
   data: () => ({
-    now: "-",
+    message: "Hello Vue.js",
   }),
-  methods: {
-    onClick: function () {
-      this.now = new Date().toLocaleString();
-    },
-  },
+});
+
+app.component("hello-component", {
+  template: "<p>Hello!</p>",
 });
 
 app.mount("#app");
