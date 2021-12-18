@@ -15,7 +15,7 @@
   flex-basis: 5em;
 }
 
-.new-todo-item > input[type='text'],
+.new-todo-item > input[type="text"],
 .new-todo-item > textarea {
   flex-grow: 1;
   font-size: inherit;
