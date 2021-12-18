@@ -7,6 +7,11 @@ const app = Vue.createApp({
       return this.message.split("").reverse().join("");
     },
   },
+  methods: {
+    reverseMessageMethod: function () {
+      return this.message.split("").reverse().join("");
+    },
+  },
 });
 
 app.mount("#app");
