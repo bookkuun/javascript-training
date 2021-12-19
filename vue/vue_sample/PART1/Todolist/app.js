@@ -38,6 +38,14 @@ Vue.createApp({
       return this.categories.indexOf(categoryName) !== -1;
     },
   },
+  watch: {
+    todos: {
+      handler: function (next) {
+        window.localStorage.setItem("todos", JSON.stringify(next));
+      },
+      deep: true,
+    },
+  },
   methods: {
     //Todoの作成
     createTodo: function () {
@@ -71,5 +79,17 @@ Vue.createApp({
 
       this.categoryName = "";
     },
+  },
+  created: function () {
+    const todos = window.localStorage.getItem("todos");
+    const categories = window.localStorage.getItem("categories");
+
+    if (todos) {
+      this.todos = JSON.parse(todos);
+    }
+
+    if (categories) {
+      this.categories = JSON.parse(categories);
+    }
   },
 }).mount("#app");
