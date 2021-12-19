@@ -1,41 +1,63 @@
 Vue.createApp({
   data: function () {
     return {
-      //タイトル名
       todoTitle: "",
-      //説明
       todoDescription: "",
-      //選択されたカテゴリ配列
       todoCategories: [],
-      //選択カテゴリ配列
-      selectedCategory: [],
-      //todo配列
+      selectedCategory: "",
       todos: [],
-      //作成したカテゴリ配列
       categories: [],
-      //隠すかBoolean
       hideDoneTodo: false,
-      //検索ワード
       searchWord: "",
-      //並べ方
       order: "desc",
-      //カテゴリの名前
       categoryName: "",
     };
   },
   computed: {
-    //Todoリスク作成チェック
     canCreateTodo: function () {
       return this.todoTitle !== "";
     },
-    //カテゴリ作成チェック
     canCreateCategory: function () {
       return this.categoryName !== "" && !this.existsCategory;
     },
-    //すでに作成されてないかチェック
     existsCategory: function () {
       const categoryName = this.categoryName;
+
       return this.categories.indexOf(categoryName) !== -1;
+    },
+    hasTodos: function () {
+      return this.todos.length > 0;
+    },
+    resultTodos: function () {
+      const selectedCategory = this.selectedCategory;
+      const hideDoneTodo = this.hideDoneTodo;
+      const order = this.order;
+      const searchWord = this.searchWord;
+      return this.todos
+        .filter(function (todo) {
+          return (
+            selectedCategory === "" ||
+            todo.categories.indexOf(selectedCategory) !== -1
+          );
+        })
+        .filter(function (todo) {
+          if (hideDoneTodo) {
+            return !todo.done;
+          }
+          return true;
+        })
+        .filter(function (todo) {
+          return (
+            todo.title.indexOf(searchWord) !== -1 ||
+            todo.description.indexOf(searchWord) !== -1
+          );
+        })
+        .sort(function (a, b) {
+          if (order === "asc") {
+            return a.dateTime - b.dateTime;
+          }
+          return b.dateTime - a.dateTime;
+        });
     },
   },
   watch: {
@@ -45,15 +67,19 @@ Vue.createApp({
       },
       deep: true,
     },
+    categories: {
+      handler: function (next) {
+        window.localStorage.setItem("categories", JSON.stringify(next));
+      },
+      deep: true,
+    },
   },
   methods: {
-    //Todoの作成
     createTodo: function () {
       if (!this.canCreateTodo) {
         return;
       }
 
-      //Todoタスクを追加する処理
       this.todos.push({
         id: "todo-" + Date.now(),
         title: this.todoTitle,
@@ -63,18 +89,15 @@ Vue.createApp({
         done: false,
       });
 
-      //登録後の後始末
       this.todoTitle = "";
       this.todoDescription = "";
       this.todoCategories = [];
     },
-    //カテゴリの作成
     createCategory: function () {
       if (!this.canCreateCategory) {
         return;
       }
 
-      //カテゴリを追加する処理
       this.categories.push(this.categoryName);
 
       this.categoryName = "";
