@@ -1,2 +1,6 @@
-console.log("This is Tom's house.");
-console.log(`This is Tom's house.`);
+// エスケープを使う場合
+let str = "This is Tom's house.";
+console.log(str);
+// エスケープを使わない場合
+let str = "This is Tom's house.";
+console.log(str);
