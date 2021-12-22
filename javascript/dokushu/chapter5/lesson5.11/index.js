@@ -1,0 +1,10 @@
+const arry = [10, "文字列", 20, true, 23, 47];
+let sum = 0;
+
+for (const value of arry) {
+  if (typeof value === "number") {
+    sum += value;
+  }
+}
+
+console.log(sum);
