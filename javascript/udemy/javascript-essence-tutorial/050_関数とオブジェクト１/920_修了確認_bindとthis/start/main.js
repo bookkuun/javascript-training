@@ -34,10 +34,10 @@ const person = {
 
     // ３．thisを一旦変数に代入
 
-    const _this = this;
-    setTimeout(function () {
-      _this.hello("hello");
-    });
+    // const _this = this;
+    // setTimeout(function () {
+    //   _this.hello("hello");
+    // });
   },
 };
 
@@ -49,7 +49,7 @@ person.hello1s();
  * と出力されるように、以下のコード
  * の記載を変更しましょう。
  */
-setTimeout(person.hello.bind(person, "hello"), 1000);
+// setTimeout(person.hello.bind(person, "hello"), 1000);
 
 /**
  * 問題２：
@@ -65,4 +65,4 @@ setTimeout(person.hello.bind(person, "hello"), 1000);
  * "Bye"しか表示されませんでした。
  * "Bye Tom"とするためにはどうすればよいでしょうか？
  */
-setTimeout(person.bye.bind(person), 1000);
+// setTimeout(person.bye.bind(person), 1000);
