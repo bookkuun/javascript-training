@@ -2,18 +2,16 @@
 
 function lastFourHint(stringInput) {
   if (stringInput.length < 6) {
-    console.log("There is no Hint");
     return "There is no Hint";
   } else {
     let hint = stringInput.slice(-4);
-    console.log("Hint is:" + hint);
     return "Hint is:" + hint;
   }
 }
 
-lastFourHint("text");
-lastFourHint("Ocean");
-lastFourHint("the ocean is blue");
-lastFourHint("abcdef");
-lastFourHint("integer");
-lastFourHint("1-545-452-5123");
+console.log(lastFourHint("text"));
+console.log(lastFourHint("Ocean"));
+console.log(lastFourHint("the ocean is blue"));
+console.log(lastFourHint("abcdef"));
+console.log(lastFourHint("integer"));
+console.log(lastFourHint("1-545-452-5123"));
