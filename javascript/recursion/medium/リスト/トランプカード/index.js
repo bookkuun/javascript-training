@@ -54,10 +54,11 @@ class Deck {
 
 //ディーラー
 class Dealer {
-  static startGame(amountOfPlayers) {
+  static startGame(amountOfPlayers, gameMode) {
     //卓の情報
     let table = {
       players: [],
+      gameMode: gameMode,
       deck: new Deck(),
     };
 
@@ -66,20 +67,25 @@ class Dealer {
 
     for (let i = 0; i < amountOfPlayers; i++) {
       // プレイヤーの手札
-      let playCard = [];
+      let playerCard = [];
 
-      //ブラックジャックの手札は2枚
-      for (let j = 0; j < 2; j++) {
-        playCard.push(table["deck"].draw());
+      for (let j = 0; j < Dealer.initialCards(gameMode); j++) {
+        playerCard.push(table["deck"].draw());
       }
-
-      table["players"].push(playCard);
+      table["players"].push(playerCard);
     }
 
     return table["players"];
   }
+
+  static initialCards(gameMode) {
+    if (gameMode === "poker") return 5;
+    if (gameMode === "21") return 2;
+  }
 }
 
-// コンソールで確認
-let table1 = Dealer.startGame(4);
+let table1 = Dealer.startGame(3, "21");
 console.log(table1);
+
+let table2 = Dealer.startGame(4, "poker");
+console.log(table2);
