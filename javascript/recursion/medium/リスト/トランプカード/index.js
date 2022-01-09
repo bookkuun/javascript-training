@@ -52,11 +52,34 @@ class Deck {
   }
 }
 
-let deck1 = new Deck();
+//ディーラー
+class Dealer {
+  static startGame(amountOfPlayers) {
+    //卓の情報
+    let table = {
+      players: [],
+      deck: new Deck(),
+    };
 
-// シャッフル
-deck1.shuffleDeck();
+    //シャッフル
+    table["deck"].shuffleDeck();
+
+    for (let i = 0; i < amountOfPlayers; i++) {
+      // プレイヤーの手札
+      let playCard = [];
+
+      //ブラックジャックの手札は2枚
+      for (let j = 0; j < 2; j++) {
+        playCard.push(table["deck"].draw());
+      }
+
+      table["players"].push(playCard);
+    }
+
+    return table["players"];
+  }
+}
 
 // コンソールで確認
-console.log(deck1.deck[deck1.deck.length - 1]);
-console.log(deck1.draw().getCardString());
+let table1 = Dealer.startGame(4);
+console.log(table1);
