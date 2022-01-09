@@ -127,6 +127,12 @@ class Dealer {
       else return "No winners..";
     }
   }
+
+  // 卓のゲームの種類によって勝利条件を変更するcheckWinnerというメソッドを作成します。
+  static checkWinner(table) {
+    if (table["gameMode"] == "21") return Dealer.winnerOf21(table);
+    else return "no game";
+  }
 }
 
 class HelperFunctions {
@@ -144,7 +150,11 @@ class HelperFunctions {
   }
 }
 
-let table = Dealer.startGame(4, "21");
+let table1 = Dealer.startGame(1, "poker");
+let table2 = Dealer.startGame(3, "21");
 
-Dealer.printTableInformation(table);
-console.log(Dealer.winnerOf21(table));
+Dealer.printTableInformation(table1);
+console.log(Dealer.checkWinner(table1));
+
+Dealer.printTableInformation(table2);
+console.log(Dealer.checkWinner(table2));
