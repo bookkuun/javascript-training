@@ -55,37 +55,46 @@ class Deck {
 //ディーラー
 class Dealer {
   static startGame(amountOfPlayers, gameMode) {
-    //卓の情報
     let table = {
       players: [],
       gameMode: gameMode,
       deck: new Deck(),
     };
 
-    //シャッフル
     table["deck"].shuffleDeck();
 
     for (let i = 0; i < amountOfPlayers; i++) {
-      // プレイヤーの手札
       let playerCard = [];
-
       for (let j = 0; j < Dealer.initialCards(gameMode); j++) {
         playerCard.push(table["deck"].draw());
       }
       table["players"].push(playerCard);
     }
 
-    return table["players"];
+    // tableを返します。
+    return table;
   }
 
   static initialCards(gameMode) {
-    if (gameMode === "poker") return 5;
-    if (gameMode === "21") return 2;
+    if (gameMode == "poker") return 5;
+    if (gameMode == "21") return 2;
+  }
+
+  // 卓の情報を表示するメソッドを作成します。
+  static printTableInformation(table) {
+    console.log("Amount of players: " + table["players"].length + "... Game mode: " + table["gameMode"] + ". At this table: ");
+
+    for (let i = 0; i < table["players"].length; i++) {
+      console.log("Player " + (i + 1) + " hand is: ");
+      for (let j = 0; j < table["players"][i].length; j++) {
+        console.log(table["players"][i][j].getCardString());
+      }
+    }
   }
 }
 
 let table1 = Dealer.startGame(3, "21");
-console.log(table1);
+Dealer.printTableInformation(table1);
 
 let table2 = Dealer.startGame(4, "poker");
-console.log(table2);
+Dealer.printTableInformation(table2);
