@@ -30,6 +30,10 @@ class Deck {
     return newDeck;
   }
 
+  draw() {
+    return this.deck.pop();
+  }
+
   printDeck() {
     console.log("Displaying cards...");
     for (let i = 0; i < this.deck.length; i++) {
@@ -49,9 +53,10 @@ class Deck {
 }
 
 let deck1 = new Deck();
-// シャッフル前のデッキ
-deck1.printDeck();
 
-// シャッフル後のデッキ
+// シャッフル
 deck1.shuffleDeck();
-deck1.printDeck();
+
+// コンソールで確認
+console.log(deck1.deck[deck1.deck.length - 1]);
+console.log(deck1.draw().getCardString());
