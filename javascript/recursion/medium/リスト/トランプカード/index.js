@@ -103,6 +103,26 @@ class Dealer {
     if (value > 21) value = 0;
     return value;
   }
+
+  static winnerOf21(table) {
+    let points = [];
+    let cache = [];
+
+    for (let i = 0; i < table["players"].length; i++) {
+      let point = Dealer.score21Individual(table["players"][i]);
+      points.push(point);
+
+      if (cache[point] >= 1) cache[point] += 1;
+      else cache[point] = 1;
+
+      console.log(points);
+
+      let winnerIndex = HelperFunctions.maxInArrayIndex(points);
+      if (cache[points[winnerIndex]] > 1) return "It is a draw ";
+      else if (cache[points[winnerIndex]] >= 0) return "player " + (winnerIndex + 1) + " is the winner";
+      else return "No winners..";
+    }
+  }
 }
 
 class HelperFunctions {
@@ -119,11 +139,7 @@ class HelperFunctions {
     return maxIndex;
   }
 }
+let table = Dealer.startGame(4, "21");
 
-// 最大値は19(= index 2)
-let arr1 = [1, 9, 19, 3, 4, 6];
-console.log(HelperFunctions.maxInArrayIndex(arr1));
-
-// 最大値は5(= index 0)
-let arr2 = [5, 2, 1, 3, 5, 5];
-console.log(HelperFunctions.maxInArrayIndex(arr2));
+Dealer.printTableInformation(table);
+console.log(Dealer.winnerOf21(table));
