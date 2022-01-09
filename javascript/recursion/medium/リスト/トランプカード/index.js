@@ -29,16 +29,14 @@ class Deck {
 
     return newDeck;
   }
+
+  printDeck() {
+    console.log("Displaying cards...");
+    for (let i = 0; i < this.deck.length; i++) {
+      console.log(this.deck[i].getCardString());
+    }
+  }
 }
 
-let card1 = new Card("♦︎", "A", 1);
-console.log(card1);
-console.log(card1.getCardString());
-
 let deck1 = new Deck();
-console.log(deck1);
-
-// コンソールで確認
-console.log(deck1.deck);
-console.log(deck1.deck[3]);
-console.log(deck1.deck[3].getCardString());
+deck1.printDeck();
