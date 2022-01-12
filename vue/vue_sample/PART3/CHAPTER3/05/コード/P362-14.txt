@@ -1,4 +1,0 @@
-    price: {
-      type: Number,
-      required: true,
-    },

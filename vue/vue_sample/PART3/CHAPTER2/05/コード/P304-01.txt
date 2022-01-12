@@ -1,5 +1,0 @@
-<template>
-  <layout-wrapper>
-    <layout-visual title="Concept" :height="40" visual="" />
-  </layout-wrapper>
-</template>

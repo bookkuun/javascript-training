@@ -1,4 +1,0 @@
-    imageUrl: {
-      type: String,
-      required: true,
-    },

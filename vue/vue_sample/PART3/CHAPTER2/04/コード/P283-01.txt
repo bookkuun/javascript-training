@@ -1,5 +1,0 @@
-<template>
-  <h2>
-    こんにちは。{{ name }}
-  </h2>
-</template>

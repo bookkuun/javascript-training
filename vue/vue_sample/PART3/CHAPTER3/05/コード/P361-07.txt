@@ -1,4 +1,0 @@
-    image: {
-      type: Object,
-      required: true,
-    },

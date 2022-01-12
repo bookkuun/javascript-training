@@ -1,5 +1,0 @@
-<template>
-  <layout-wrapper>
-    <layout-visual title="ページ名" :height="40" visual="" />
-  </layout-wrapper>
-</template>

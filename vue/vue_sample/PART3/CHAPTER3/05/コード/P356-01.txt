@@ -1,2 +1,0 @@
-// envファイルから必要な環境変数を定義
-const { API_KEY, API_URL } = process.env
