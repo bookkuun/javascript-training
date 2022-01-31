@@ -1,49 +1,60 @@
-function stopWatch(options) {
-  function addMessage(message) {
-    const messageElm = document.createElement("div");
-    const now = new Date();
-    messageElm.innerText = now.getHours() + "時" + now.getMinutes() + "分" + now.getSeconds() + "秒 " + message;
-    messageElm.classList = "message";
-    logElm.appendChild(messageElm);
+class StopWatch {
+  constructor(options = {}) {
+    this.options = options;
   }
 
-  options = options || {};
-  const color = options.color || "lightblue";
-  const backgroundColor = options.backgroundColor || "black";
-  const displayElm = document.getElementsByClassName("display")[0];
-  displayElm.style.color = color;
-  displayElm.style.backgroundColor = backgroundColor;
+  init() {
+    let { color, backgroundColor } = this.options;
 
-  const logElm = document.querySelector(".log");
-  let timer = null;
+    color = color || "lightblue";
+    backgroundColor = backgroundColor || "black";
 
-  const startButton = document.getElementsByClassName("startButton")[0];
+    const display = document.getElementsByClassName("display")[0];
+    display.style.color = color;
+    display.style.backgroundColor = backgroundColor;
 
-  startButton.addEventListener("click", function () {
-    if (timer === null) {
-      let seconds = 0;
-      timer = setInterval(function () {
-        seconds++;
-        displayElm.innerHTML = seconds;
-      }, 1000);
-      addMessage("開始");
-      console.log("start:" + timer);
-    }
-  });
+    this.logElm = document.querySelector(".log");
 
-  const stopButton = document.getElementsByClassName("stopButton")[0];
-  stopButton.addEventListener("click", function () {
-    if (timer !== null) {
-      console.log("stop:" + timer);
-      clearInterval(timer);
-      timer = null;
-      addMessage("終了");
-    }
-  });
+    let timer = null;
+    const startButton = document.getElementsByClassName("startButton")[0];
+    startButton.addEventListener("click", () => {
+      if (timer === null) {
+        let seconds = 0;
+        display.innerText = seconds;
+
+        timer = setInterval(() => {
+          seconds++;
+          display.innerHTML = seconds;
+        }, 1000);
+
+        this.addMessage("開始");
+      }
+    });
+
+    const stopButton = document.getElementsByClassName("stopButton")[0];
+    stopButton.addEventListener("click", () => {
+      if (timer !== null) {
+        clearInterval(timer);
+        timer = null;
+
+        this.addMessage("終了");
+      }
+    });
+  }
+
+  addMessage(message) {
+    const messageElm = document.createElement("div");
+    const now = new Date();
+    messageElm.innerText = `${now.getHours()}時${now.getMinutes()}分${now.getSeconds()}秒 ${message}`;
+    messageElm.classList = "message";
+    this.logElm.appendChild(messageElm);
+  }
 }
 
 const options = {
   color: "limegreen",
   backgroundColor: "#333",
 };
-stopWatch(options);
+
+const stopWatch = new StopWatch(options);
+stopWatch.init();
