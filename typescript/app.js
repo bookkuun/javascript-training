@@ -7,8 +7,8 @@ function add(n1, n2, showResult, phrase) {
     }
 }
 var number1 = 5;
-var number2 = 2;
+var number2 = 2.8;
 var printResult = true;
-var resultPhrase = 'Result: ';
+var resultPhrase = "Result: ";
 var result = add(number1, number2, printResult, resultPhrase);
 console.log(result);
