@@ -21,3 +21,17 @@ const fruits: string[] = ['Apple', 'Banana', 'Grape'];
 
 //タプル型(pushでは入れることができる)
 const book: [string, number, boolean] = ['business', 1500, false];
+
+//列挙型 enum 指定のものだけ
+
+enum CoffeeSize {
+  SHORT = 'SHORT',
+  TALL = 'TALL',
+}
+
+const coffee = {
+  hot: true,
+  size: CoffeeSize.SHORT,
+};
+
+// coffee.size = 'SHORT'
