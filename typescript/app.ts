@@ -1,16 +1,9 @@
-enum Role {
-  ADMIN,
-  READ_ONLY,
-  AUTHOR,
+function add(n1: number, n2: number): number {
+  return n1 + n2;
 }
 
-const person = {
-  name: "yota",
-  age: 30,
-  hobbies: ["Sports", "Cooking"],
-  role: Role.ADMIN,
-};
-
-if (person.role === Role.ADMIN) {
-  console.log("管理者");
+function printResult(num: number) {
+  console.log("Result" + num);
 }
+
+printResult(add(5, 12));
