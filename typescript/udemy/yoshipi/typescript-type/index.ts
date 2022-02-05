@@ -27,6 +27,8 @@ const book: [string, number, boolean] = ['business', 1500, false];
 enum CoffeeSize {
   SHORT = 'SHORT',
   TALL = 'TALL',
+  // SHORT, 0
+  // TALL, 1
 }
 
 const coffee = {
