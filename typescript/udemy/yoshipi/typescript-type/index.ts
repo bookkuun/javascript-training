@@ -38,7 +38,16 @@ const coffee = {
 
 // coffee.size = 'SHORT'
 
+// any型
 let anything: any = true;
 anything = 'hello';
 anything = ['hello0', 3];
 anything = 14;
+
+// union型
+let unionType: number | string = 10;
+let unionTypes: (number | string)[] = [21, 'hello'];
+
+// リテラル型
+const apple = 'apple';
+let closeSize: 'small' | 'medium' | 'large' = 'large';
