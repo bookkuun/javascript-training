@@ -37,3 +37,8 @@ const coffee = {
 };
 
 // coffee.size = 'SHORT'
+
+let anything: any = true;
+anything = 'hello';
+anything = ['hello0', 3];
+anything = 14;
