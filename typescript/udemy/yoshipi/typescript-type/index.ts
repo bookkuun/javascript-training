@@ -58,3 +58,16 @@ function add(num1: number, num2: number): number {
 }
 
 add(2, 3);
+
+// アロー関数
+const doubleNumber = (num: number): number => num * 2;
+
+// コールバック関数
+function doubleAndHandle(num: number, cb: (num: number) => number): void {
+  const doubleNum = cb(num);
+  console.log(doubleNum);
+}
+
+doubleAndHandle(21, (doubleNum) => {
+  return doubleNum * 2;
+});
