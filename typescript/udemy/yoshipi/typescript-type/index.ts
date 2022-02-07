@@ -51,3 +51,10 @@ let unionTypes: (number | string)[] = [21, 'hello'];
 // リテラル型
 const apple = 'apple';
 let closeSize: 'small' | 'medium' | 'large' = 'large';
+
+// 関数
+function add(num1: number, num2: number): number {
+  return num1 + num2;
+}
+
+add(2, 3);
