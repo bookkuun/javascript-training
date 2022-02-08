@@ -1,3 +1,4 @@
+"use strict";
 // 基本的に型推論使用する
 // 型
 var hasValue = true;
@@ -8,7 +9,7 @@ var string = 'hello';
 //オブジェクト
 var person = {
     name: 'Jack',
-    age: 21
+    age: 21,
 };
 //配列
 var fruits = ['Apple', 'Banana', 'Grape'];
@@ -24,7 +25,7 @@ var CoffeeSize;
 })(CoffeeSize || (CoffeeSize = {}));
 var coffee = {
     hot: true,
-    size: CoffeeSize.SHORT
+    size: CoffeeSize.SHORT,
 };
 // coffee.size = 'SHORT'
 // any型
