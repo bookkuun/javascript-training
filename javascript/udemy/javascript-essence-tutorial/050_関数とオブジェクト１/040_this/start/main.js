@@ -1,8 +1,6 @@
 const person = {
-  name: "Tom",
-  hello: function () {
-    console.log("hello " + this.name);
-  },
-};
+    name: 'Tom',
+    hello: function() {
 
-person.hello();
+    }
+}

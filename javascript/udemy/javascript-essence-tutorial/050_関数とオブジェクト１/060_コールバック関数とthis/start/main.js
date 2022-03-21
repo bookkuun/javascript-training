@@ -1,15 +1,9 @@
-window.name = "John";
+window.name = 'John';
 
 const person = {
-  name: "Tom",
-  hello: function () {
-    console.log("Hello " + this.name);
-  },
-};
-person.hello();
-
-function fn(ref) {
-  ref();
+    name: 'Tom',
+    hello: function() {
+        console.log('Hello ' + this.name);
+    }
 }
-
-fn(person.hello);
+person.hello();
