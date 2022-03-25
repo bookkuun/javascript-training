@@ -1,7 +1,10 @@
-function a(name) {
-    console.log('hello ' + name);
+function a(name, name1) {
+  console.log('hello ' + name + ' ' + name1);
 }
 
-const b = a.bind(null, 'Tim');
+const tim = { name: 'Tim' };
 
-b();
+const b = a.bind(tim);
+
+a.call(tim, 'Tim');
+a.apply(tim, ['tim', 'bob']);
