@@ -9,16 +9,22 @@
   </head>
   <body>
     <div id="app">
-      {{ message }}
-      <a v-bind:href="message"></a>
+      <my-component></my-component>
+      <my-component></my-component>
+      <my-component></my-component>
     </div>
     <script>
+      Vue.component('my-component', {
+        template: `<div>
+          あああ<br>
+          いいい
+          </div>`,
+      });
+
       let app = new Vue({
         el: '#app',
         data() {
-          return {
-            message: 'Helloだs',
-          };
+          return {};
         },
       });
     </script>
