@@ -1,9 +1,7 @@
 <template>
   <div>
-    <nav>
-      <router-link to="/" class="link">Home</router-link>
-      <router-link to="/users" class="link">Users</router-link>
-    </nav>
+    <!-- <router-view name="header"></router-view> -->
+    <router-view name="header"></router-view>
     <router-view></router-view>
     <!-- <LikeHeader>
       <h1>トータルのいいね数</h1>
@@ -34,9 +32,3 @@
 // };
 //
 </script>
-
-<style scoped>
-.link {
-  margin-right: 10px;
-}
-</style>
