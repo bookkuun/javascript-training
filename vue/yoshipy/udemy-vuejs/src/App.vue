@@ -1,9 +1,26 @@
 <template>
-  <div>おはよう</div>
+  <div>
+    <LikeHeader />
+    <p>{{ number }}</p>
+    <LikeNumber :total-number="number" @my-click="incrementNumber" />
+    <LikeNumber :total-number="number" @my-click="incrementNumber" />
+  </div>
 </template>
 
 <script>
-export default {};
-</script>
+import LikeHeader from './components/LikeHeader.vue';
 
-<style scoped></style>
+export default {
+  data() {
+    return {
+      number: 20,
+    };
+  },
+  components: { LikeHeader },
+  methods: {
+    incrementNumber() {
+      this.number += 1;
+    },
+  },
+};
+</script>
