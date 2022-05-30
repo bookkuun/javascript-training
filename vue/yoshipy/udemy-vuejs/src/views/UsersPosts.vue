@@ -1,5 +1,5 @@
 <template>
   <div>
-    <h2>ユーザーの投稿</h2>
+    <h2>ユーザー投稿</h2>
   </div>
 </template>

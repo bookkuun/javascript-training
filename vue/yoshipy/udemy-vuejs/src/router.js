@@ -21,18 +21,28 @@ export default new Router({
     },
     {
       path: '/users/:id',
+
       components: {
         default: MyUsers,
         header: HeaderUsers,
       },
-      props: {
-        default: true,
-        header: false,
-      },
+
+      props: { default: true, header: false },
       children: [
-        { path: 'posts', component: UsersPosts },
-        { path: 'profile', component: UsersProfile, name: 'users-id-profile' },
+        {
+          path: 'posts',
+          component: UsersPosts,
+        },
+        {
+          path: 'profile',
+          component: UsersProfile,
+          name: 'users-id-profile',
+        },
       ],
+    },
+    {
+      path: '*',
+      redirect: '/',
     },
   ],
 });

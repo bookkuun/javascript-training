@@ -1,21 +1,18 @@
 <template>
   <div>
     <h3>Home</h3>
-    <button @click="toUsers">Usersページへいく</button>
-    <p>{{ count }}</p>
+    <button @click="toUsers">Usersへ行く</button>
   </div>
 </template>
 
 <script>
 export default {
-  computed: {
-    count() {
-      return this.$store.state.count;
-    },
-  },
   methods: {
     toUsers() {
-      this.$router.push('users/1');
+      this.$router.push({
+        name: 'users-id-profile',
+        params: { id: 1 },
+      });
     },
   },
 };
